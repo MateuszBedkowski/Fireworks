@@ -1,13 +1,10 @@
-
 const canvas = document.getElementById("canvas")
 const canvasContext = canvas.getContext("2d")
-
 
 let gravity = -0.1
 
 let fireworks = []
 let subFireworks = []
-
 
 class Firework {
     constructor(x, y, radius, velocityX, velocityY, color) {
@@ -55,7 +52,6 @@ let animate = () => {
 let colors = ["Blue", "Orange", "Red", "Purple", "Green", "White", "Gold", "Pink"]
 let initializeCount = 0
 let maximumInitialize = 1
-
 let initDelay = 500
 let fireworkRadius = 5
 let particleCount = 120
@@ -74,8 +70,8 @@ let createSubFireworks = (x, y, count, color, speedMultiplier) => {
         console.log(subFireworks)
         created++
     }
-
 }
+
 let update = () => {
     canvasContext.fillStyle = "rgba(10,0,0,0.1)"
     canvasContext.fillRect(0, 0, canvas.width, canvas.height)
@@ -87,6 +83,7 @@ let update = () => {
         setTimeout(() => { initializeCount-- }, initDelay)
         initializeCount++
     }
+
     fireworks.forEach((firework, i) => {
         if (firework.opacity <= 0.1) {
             fireworks.splice(i, 1)
@@ -106,7 +103,6 @@ let update = () => {
     })
 }
 
-
 let draw = () => {
     fireworks.forEach(firework => {
         firework.draw()
@@ -115,6 +111,5 @@ let draw = () => {
         firework.draw()
     })
 }
-
 
 animate()
